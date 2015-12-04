@@ -18,28 +18,28 @@ help:
 # Manage
 build:
 	@echo "$(step) Building $(step)"
-	@docker build --tag=huttopia/nginx-php-fpm:latest .
+	@docker build --tag=huttopia/apache-php:5.4 .
 
 start:
 	@echo "$(step) Starting $(step)"
-	@docker run --name huttosoft-apache-php -d -it -v $(PWD):/src huttopia/nginx-php-fpm:latest
+	@docker run --name huttopia-apache-php -d -it -v $(PWD):/src huttopia/apache-php:5.4
 
 state:
 	@echo "$(step) Current state $(step)"
-	@docker ps -a | grep huttosoft-apache-php
+	@docker ps -a | grep huttopia-apache-php
 
 logs:
 	@echo "$(step) Logs $(step)"
-	@docker logs -f huttosoft-apache-php
+	@docker logs -f huttopia-apache-php
 
 stop:
 	@echo "$(step) Stopping $(step)"
-	@docker stop huttosoft-apache-php
+	@docker stop huttopia-apache-php
 
 remove: stop
 	@echo "$(step) Removing $(step)"
-	@docker rm huttosoft-apache-php
+	@docker rm huttopia-apache-php
 
 bash:
 	@echo "$(step) Bash $(step)"
-	@docker exec -it huttosoft-apache-php bash
+	@docker exec -it huttopia-apache-php bash
