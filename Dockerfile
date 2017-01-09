@@ -50,6 +50,10 @@ RUN a2enmod rewrite \
     && rm -f /etc/apache2/sites-available/* \
     && rm -rf /var/www/*
 
+# Config PHP
+RUN php5enmod mcrypt \
+    && service apache2 restart
+
 # Alias sf
 RUN echo "alias sf='php bin/console'" >> /root/.bashrc
 
