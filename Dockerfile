@@ -36,6 +36,7 @@ RUN apt-get update && apt-get install -y \
     php5-apcu \
     php-pear \
     php5-gd \
+    php5-mcrypt \
     libapache2-mod-php5 \
     php5-mysql
 
